@@ -2,7 +2,7 @@ void takeMeasurements(){
 
 File file = SD.open("/data.csv", FILE_APPEND);
 
-for(int i=0;i<10;i++){
+for(int i=0;i<config.samples;i++){
 
 float data[18];
 
