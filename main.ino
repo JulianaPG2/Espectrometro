@@ -11,11 +11,28 @@
 AS7265X sensor;
 AsyncWebServer server(80);
 
+// CONFIGURACION
+struct SensorConfig {
+  int samples = 10;
+  int integration = 50;
+  int gain = 1;
+};
+
+SensorConfig config;
+
+String ssid="";
+String password="";
+
+const char* APssid = "Spectrometer-ESP32";
+const char* APpass = "12345678";
+
+File dataFile;
+
 void setup(){
 
 Serial.begin(115200);
 
-WiFi.softAP("Spectrometer-ESP32","12345678");
+WiFi.softAP(APssid, APpass);
 
 Serial.println("Access Point iniciado");
 Serial.println(WiFi.softAPIP());
